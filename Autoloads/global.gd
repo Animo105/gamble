@@ -1,11 +1,17 @@
 extends Node
 
-signal money_change
+signal _money_update
+signal _bet_update
 
 var money : int = 1000:
 	set(value):
 		money = value
-		money_change.emit()
+		_money_update.emit()
+
+var bet_ammount : int = 100:
+	set(value):
+		bet_ammount = value
+
 var capsules : Dictionary[String, int] = {
 	"blue":0,
 	"green":0,
