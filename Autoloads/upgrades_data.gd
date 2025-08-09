@@ -2,7 +2,7 @@ extends Node
 
 
 var upgrades : Array = [
-	Upgrade.new(1, "Coins UP!", "Probability to have coins whent up.", 500, coin_probability_upgrade) 
+	Upgrade.new(1, "Coins UP!", "Probability to have coins whent up.", 100, coin_probability_upgrade) 
 	
 ]
 

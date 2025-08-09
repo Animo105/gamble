@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://rrqvetwswhe0"]
+[gd_scene load_steps=17 format=3 uid="uid://rrqvetwswhe0"]
 
 [ext_resource type="Script" uid="uid://deeiretn6ypig" path="res://Slot machine/Scripts/slot_machine_script.gd" id="1_8lydx"]
 [ext_resource type="Texture2D" uid="uid://dxeaby3122vjx" path="res://Assets/Slot Machine/slot_machine_lever.png" id="2_u3mqo"]
 [ext_resource type="PackedScene" uid="uid://fv8dx326jo7k" path="res://Slot machine/slot.tscn" id="3_u3mqo"]
+[ext_resource type="FontFile" uid="uid://g4agobb7vun1" path="res://UI/Fonts/PixelOperatorMonoHB.ttf" id="4_umstu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i6cki"]
 atlas = ExtResource("2_u3mqo")
@@ -103,7 +104,7 @@ animations = [{
 script = ExtResource("1_8lydx")
 
 [node name="Slot Lever" type="Node2D" parent="."]
-position = Vector2(297, 78)
+position = Vector2(239, 80)
 
 [node name="Lever Sprite" type="AnimatedSprite2D" parent="Slot Lever"]
 sprite_frames = SubResource("SpriteFrames_knkoj")
@@ -118,12 +119,30 @@ offset_right = 6.0
 offset_bottom = 31.0
 
 [node name="Slot" parent="." instance=ExtResource("3_u3mqo")]
-position = Vector2(84, 90)
+position = Vector2(171, 80)
 
 [node name="Slot2" parent="." instance=ExtResource("3_u3mqo")]
-position = Vector2(102, 90)
+position = Vector2(189, 80)
 
 [node name="Slot3" parent="." instance=ExtResource("3_u3mqo")]
-position = Vector2(120, 90)
+position = Vector2(207, 80)
+
+[node name="bet text" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(70, 25)
+offset_left = 245.0
+offset_top = 150.0
+offset_right = 315.0
+offset_bottom = 175.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_umstu")
+theme_override_font_sizes/font_size = 9
+text = "100"
+placeholder_text = "bet ammount"
+alignment = 1
+max_length = 10
 
 [connection signal="pressed" from="Slot Lever/Lever Button" to="." method="_on_lever_button_pressed"]
+[connection signal="focus_entered" from="bet text" to="." method="_on_bet_text_focus_entered"]
+[connection signal="focus_exited" from="bet text" to="." method="_on_bet_text_focus_exited"]
+[connection signal="text_submitted" from="bet text" to="." method="_on_bet_text_text_submitted"]

@@ -1,9 +1,10 @@
 extends Node
 
+var coins_bonus_value :int= 0
 
 var slots : Array[Slot] = [
 	# id, weight, action
-	Slot.new(0, 0, func(amount): return 0), # blank
+	Slot.new(0, 0, func(_amount): return 0), # blank
 	Slot.new(1, 10, coin), # single coin
 	Slot.new(2, 5, coins), # pile of coins
 	Slot.new(3, 1, blue_capsule), # blue capsule
@@ -28,21 +29,21 @@ class Slot:
 		weight = slot_weight
 		action = slot_action
 
-func coin(amount : int)->int:
-	return amount + 500
+func coin(_amount : int)->int:
+	return 100 + coins_bonus_value
 
-func coins(amount : int)->int:
-	return amount + 1000
+func coins(_amount : int)->int:
+	return 500 + coins_bonus_value
 
-func blue_capsule(amount : int)->int:
+func blue_capsule(_amount : int)->int:
 	Global.capsules["blue"] += 1
 	return 0
 
-func green_capsule(amount : int)->int:
+func green_capsule(_amount : int)->int:
 	Global.capsules["green"] += 1
 	return 0
 
-func yellow_capsule(amount : int)->int:
+func yellow_capsule(_amount : int)->int:
 	Global.capsules["yellow"] += 1
 	return 0
 
@@ -58,11 +59,11 @@ func water_melon(amount)->int:
 func grapes(amount)->int:
 	return amount * 5
 
-func clover(amount)->int:
+func clover(_amount)->int:
 	return 0
 
-func horse_shoe(amount)->int:
+func horse_shoe(_amount)->int:
 	return 0
 
-func jackpot(amount)->int:
+func jackpot(_amount)->int:
 	return 0
