@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bik8s6nkqm1oc"]
+
+[ext_resource type="Script" uid="uid://c7ssk51bka2px" path="res://Autoloads/HUD/hud_script.gd" id="1_56do0"]
+[ext_resource type="FontFile" uid="uid://g4agobb7vun1" path="res://UI/Fonts/PixelOperatorMonoHB.ttf" id="1_jis8a"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_56do0")
+
+[node name="money" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 17.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="money"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_jis8a")
+theme_override_font_sizes/font_size = 9
+text = "99999$"
+horizontal_alignment = 1
+vertical_alignment = 1

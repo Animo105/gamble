@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://fv8dx326jo7k"]
+
+[ext_resource type="Script" uid="uid://qq5mcdtp0hby" path="res://Slot machine/Scripts/slot.gd" id="1_gkuw1"]
+[ext_resource type="Texture2D" uid="uid://bpb8xhpqg06xl" path="res://Assets/Slot Machine/slots.png" id="2_s8o2j"]
+
+[node name="Slot" type="Node2D"]
+script = ExtResource("1_gkuw1")
+
+[node name="Slots" type="Sprite2D" parent="."]
+texture = ExtResource("2_s8o2j")
+hframes = 14

@@ -1,0 +1,129 @@
+[gd_scene load_steps=16 format=3 uid="uid://rrqvetwswhe0"]
+
+[ext_resource type="Script" uid="uid://deeiretn6ypig" path="res://Slot machine/Scripts/slot_machine_script.gd" id="1_8lydx"]
+[ext_resource type="Texture2D" uid="uid://dxeaby3122vjx" path="res://Assets/Slot Machine/slot_machine_lever.png" id="2_u3mqo"]
+[ext_resource type="PackedScene" uid="uid://fv8dx326jo7k" path="res://Slot machine/slot.tscn" id="3_u3mqo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6cki"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(0, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmlme"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(0, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knkoj"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(16, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_842tv"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(32, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7abct"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(48, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpwbf"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(64, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfulg"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(64, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvm1u"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(48, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwfc2"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(32, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjjkd"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(16, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ucdj"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(0, 0, 16, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_knkoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6cki")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmlme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knkoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_842tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7abct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpwbf")
+}],
+"loop": false,
+"name": &"lever_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfulg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvm1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwfc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjjkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ucdj")
+}],
+"loop": false,
+"name": &"lever_up",
+"speed": 10.0
+}]
+
+[node name="Slot Machine" type="Node2D"]
+script = ExtResource("1_8lydx")
+
+[node name="Slot Lever" type="Node2D" parent="."]
+position = Vector2(297, 78)
+
+[node name="Lever Sprite" type="AnimatedSprite2D" parent="Slot Lever"]
+sprite_frames = SubResource("SpriteFrames_knkoj")
+animation = &"lever_down"
+frame = 4
+frame_progress = 1.0
+
+[node name="Lever Button" type="TextureButton" parent="Slot Lever"]
+offset_left = -6.0
+offset_top = -31.0
+offset_right = 6.0
+offset_bottom = 31.0
+
+[node name="Slot" parent="." instance=ExtResource("3_u3mqo")]
+position = Vector2(84, 90)
+
+[node name="Slot2" parent="." instance=ExtResource("3_u3mqo")]
+position = Vector2(102, 90)
+
+[node name="Slot3" parent="." instance=ExtResource("3_u3mqo")]
+position = Vector2(120, 90)
+
+[connection signal="pressed" from="Slot Lever/Lever Button" to="." method="_on_lever_button_pressed"]
