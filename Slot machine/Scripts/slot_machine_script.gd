@@ -15,15 +15,19 @@ func _ready() -> void:
 		weights.append(SlotsData.slots[possibility].weight)
 
 func _on_lever_button_pressed() -> void:
-	lever_sprite.play("lever_down")
-	lever_button.disabled = true
-	var random = RandomNumberGenerator.new()
-	for slot in slots:
-		var slot_id = Global.slot_possibility[random.rand_weighted(weights)]
-		slot.selected = slot_id
-		await get_tree().create_timer(Global.slot_wait_time).timeout
-	if slots[0].selected == slots[1].selected && slots[1].selected == slots[2].selected:
-		print("WIN!!!")
-	
-	lever_sprite.play("lever_up")
-	lever_button.disabled = false
+	if Global.money >= Global.bet_ammount:
+		lever_sprite.play("lever_down")
+		lever_button.disabled = true
+		Global.money += -Global.bet_ammount
+		var random = RandomNumberGenerator.new()
+		for slot in slots:
+			var slot_id = Global.slot_possibility[random.rand_weighted(weights)]
+			slot.selected = slot_id
+			await get_tree().create_timer(Global.slot_wait_time).timeout
+		if slots[0].selected == slots[1].selected && slots[1].selected == slots[2].selected:
+			Global.money += SlotsData.slots[slots[0].selected].action.call(Global.bet_ammount)
+		
+		lever_sprite.play("lever_up")
+		lever_button.disabled = false
+		for slot in slots:
+			slot.state = MachineSlot.State.ROLLING
