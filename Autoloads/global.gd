@@ -1,16 +1,13 @@
 extends Node
 
 signal _money_update
-signal _bet_update
 
 var money : int = 1000:
 	set(value):
 		money = value
 		_money_update.emit()
 
-var bet_ammount : int = 100:
-	set(value):
-		bet_ammount = value
+var bet_ammount : int = 100
 
 var capsules : Dictionary[String, int] = {
 	"blue":0,
