@@ -34,6 +34,7 @@ window/stretch/aspect="expand"
 
 folder_colors={
 "res://Assets/": "yellow",
+"res://Shop/": "blue",
 "res://Slot machine/": "green",
 "res://UI/": "red"
 }

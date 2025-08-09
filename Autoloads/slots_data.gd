@@ -2,6 +2,7 @@ extends Node
 
 
 var slots : Array[Slot] = [
+	# id, weight, action
 	Slot.new(0, 0, func(amount): return 0), # blank
 	Slot.new(1, 10, coin), # single coin
 	Slot.new(2, 5, coins), # pile of coins

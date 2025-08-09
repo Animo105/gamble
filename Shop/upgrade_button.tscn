@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://cray5nhs2do7o"]
+
+[ext_resource type="Script" uid="uid://v5nvm3y2av6m" path="res://Shop/upgrade_button_script.gd" id="1_pqgqp"]
+[ext_resource type="FontFile" uid="uid://g4agobb7vun1" path="res://UI/Fonts/PixelOperatorMonoHB.ttf" id="2_qdr42"]
+
+[node name="upgrade_button" type="Control"]
+layout_mode = 3
+anchor_right = 0.459
+anchor_bottom = 0.156
+offset_right = 0.119995
+offset_bottom = -0.0799999
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pqgqp")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="upgrade name" type="Label" parent="."]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 104.0
+offset_bottom = 10.0
+theme_override_fonts/font = ExtResource("2_qdr42")
+theme_override_font_sizes/font_size = 8
+text = "Most Avrage Upgrade Name"
+
+[node name="upgrade desc" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = -2.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.813258, 0.813258, 0.813258, 1)
+theme_override_fonts/font = ExtResource("2_qdr42")
+theme_override_font_sizes/font_size = 5
+text = "Je veux voir a quelle point on peux mettre une description ou non"
+autowrap_mode = 2
+clip_text = true
+
+[node name="cost" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -35.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 10.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_qdr42")
+theme_override_font_sizes/font_size = 6
+text = "2500000$"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
