@@ -5,12 +5,12 @@ var coins_bonus_value :int= 0
 var slots : Array[Slot] = [
 	# id, weight, action
 	Slot.new(0, 0, func(_amount): return 0), # blank
-	Slot.new(1, 10, coin), # single coin
-	Slot.new(2, 5, coins), # pile of coins
+	Slot.new(1, 2, coin), # single coin
+	Slot.new(2, 0.5, coins), # pile of coins
 	Slot.new(3, 1, blue_capsule), # blue capsule
 	Slot.new(4, 1, green_capsule), # green capsule
 	Slot.new(5, 1, yellow_capsule), # yellow capsule
-	Slot.new(6, 1, lemon), # lemon
+	Slot.new(6, 2, lemon), # lemon
 	Slot.new(7, 1, cherry), # cherry
 	Slot.new(8, 1, water_melon), # water melon
 	Slot.new(9, 1, grapes), # grapes

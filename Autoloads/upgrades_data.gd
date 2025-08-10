@@ -16,12 +16,17 @@ var upgrades : Array[Upgrade] = [
 var upgrades_to_buy : Array[Upgrade] = []
 
 func update_array_to_buy():
+	upgrades_to_buy.clear()
 	for upgrade in upgrades:
 		if Global.upgrades_bought.has(upgrade.id):
 			continue
 		else:
-			upgrades_to_buy.append(upgrade.id)
+			upgrades_to_buy.append(upgrade)
 	upgrades_to_buy.sort_custom(func(a, b):return a.cost < b.cost)
+
+func apply_upgrades_by_id(array : Array[int]):
+	for i in array:
+		upgrades[i].apply.call()
 
 func _ready() -> void:
 	for upgrade in upgrades:
@@ -44,7 +49,7 @@ class Upgrade:
 		apply = upgrade_apply
 
 func coin_probability_upgrade():
-	SlotsData.slots[1].weight += 5
+	SlotsData.slots[1].weight += 1
 
 func coin_value_upgrade():
 	SlotsData.coins_bonus_value += 100

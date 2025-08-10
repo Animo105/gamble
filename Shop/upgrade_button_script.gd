@@ -16,5 +16,6 @@ func _on_button_pressed() -> void:
 	
 	Global.money -= upgrade_cost
 	Global.upgrades_bought.append(upgrade_id)
+	UpgradesData.upgrades_to_buy.erase(UpgradesData.upgrades[upgrade_id])
 	UpgradesData.upgrades[upgrade_id].apply.call()
 	queue_free()
