@@ -8,10 +8,26 @@ var upgrades : Array[Upgrade] = [
 	Upgrade.new(3, "Monetary Deflation 4", "Coins slot give more money.", 800, coin_value_upgrade),
 	Upgrade.new(4, "Monetary Deflation 5", "Coins slot give more money.", 1000, coin_value_upgrade),
 	Upgrade.new(5, "Coins UP 1!", "Probability to have coins whent up.", 100, coin_probability_upgrade),
+	Upgrade.new(6, "Coins UP 2!", "Probability to have coins whent up.", 500, coin_probability_upgrade),
+	Upgrade.new(7, "Coins UP 3!", "Probability to have coins whent up.", 1000, coin_probability_upgrade),
+	Upgrade.new(8, "GOING ALL IN!", "Allow to bet larger sums of money.", 1000, func():Global.is_bet_allowed = true),
 ]
 
-var upgrades_to_buy : Array[UpgradeButton] = []
+var upgrades_to_buy : Array[Upgrade] = []
 
+func update_array_to_buy():
+	for upgrade in upgrades:
+		if Global.upgrades_bought.has(upgrade.id):
+			continue
+		else:
+			upgrades_to_buy.append(upgrade.id)
+	upgrades_to_buy.sort_custom(func(a, b):return a.cost < b.cost)
+
+func _ready() -> void:
+	for upgrade in upgrades:
+		upgrades_to_buy.append(upgrade)
+	upgrades_to_buy.sort_custom(func(a, b):return a.cost < b.cost)
+	
 class Upgrade:
 	
 	var id : int

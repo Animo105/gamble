@@ -47,3 +47,7 @@ func _on_upgrades_pressed() -> void:
 	upgrades.disabled = true
 	upgrades.release_focus()
 	get_tree().change_scene_to_packed(UPGRADE_SHOP_SCENE)
+
+
+func _on_save_pressed() -> void:
+	SaveManager.save_data()

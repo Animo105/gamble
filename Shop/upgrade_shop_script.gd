@@ -11,7 +11,7 @@ static func create_button(id : int, cost : int)->UpgradeButton:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for upgrade in UpgradesData.upgrades:
+	for upgrade in UpgradesData.upgrades_to_buy:
 		if Global.upgrades_bought.has(upgrade.id): continue
 		var button := create_button(upgrade.id, upgrade.cost)
 		print(button.upgrade_cost)
