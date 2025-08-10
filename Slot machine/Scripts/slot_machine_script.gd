@@ -35,14 +35,15 @@ func _on_lever_button_pressed() -> void:
 		var modified_weigts : PackedFloat32Array = weights.duplicate()
 		modified_weigts[wanted_slot] *= Global.luck_probability
 		# roll les slates
+		print(modified_weigts)
 		slots[0].selected = Global.slot_possibility[wanted_slot]
-		await get_tree().create_timer(Global.slot_wait_time).timeout
 		for i in range(1, 3):
-			slots[i].selected = Global.slot_possibility[random.rand_weighted(modified_weigts)]
 			await get_tree().create_timer(Global.slot_wait_time).timeout
+			slots[i].selected = Global.slot_possibility[random.rand_weighted(modified_weigts)]
 		# check pour la win
 		if slots[0].selected == slots[1].selected && slots[1].selected == slots[2].selected:
 			Global.money += SlotsData.slots[slots[0].selected].action.call(Global.bet_ammount)
+		await get_tree().create_timer(1).timeout
 		lever_sprite.play("lever_up")
 		lever_button.disabled = false
 		for slot in slots:

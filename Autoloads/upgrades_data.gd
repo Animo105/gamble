@@ -11,6 +11,14 @@ var upgrades : Array[Upgrade] = [
 	Upgrade.new(6, "Coins UP 2!", "Probability to have coins whent up.", 500, coin_probability_upgrade),
 	Upgrade.new(7, "Coins UP 3!", "Probability to have coins whent up.", 1000, coin_probability_upgrade),
 	Upgrade.new(8, "GOING ALL IN!", "Allow to bet larger sums of money.", 1000, func():Global.is_bet_allowed = true),
+	Upgrade.new(9, "Lucky Timing", "Boost the chance of winning.", 1000, chance_up),
+	Upgrade.new(10, "Pin-Point Accuracy", "Boost the chance of winning.", 1000, chance_up),
+	Upgrade.new(11, "Daily Portion of Fruits", "Probability to have fruits goes up.", 300, fruits_probability_upgrade),
+	Upgrade.new(12, "Cherry on the Sunday", "Probability to have fruits goes up.", 600, fruits_probability_upgrade),
+	Upgrade.new(13, "Making Fruit Salad", "Probability to have fruits goes up.", 900, fruits_probability_upgrade),
+	Upgrade.new(14, "Fruit Connoisseurs", "Probability to have fruits goes up.", 1500, fruits_probability_upgrade),
+	Upgrade.new(15, "Time is Money 1", "Makes the slot machine roll faster.", 1000, speed_upgrade),
+	Upgrade.new(15, "Time is Money 2", "Makes the slot machine roll faster.", 2000, speed_upgrade),
 ]
 
 var upgrades_to_buy : Array[Upgrade] = []
@@ -50,6 +58,20 @@ class Upgrade:
 
 func coin_probability_upgrade():
 	SlotsData.slots[1].weight += 1
+	SlotsData.slots[2].weight += 0.5
+
+func fruits_probability_upgrade():
+	SlotsData.slots[6].weight += 0.25
+	SlotsData.slots[7].weight += 0.5
+	SlotsData.slots[8].weight += 0.75
+	SlotsData.slots[9].weight += 0.75
 
 func coin_value_upgrade():
 	SlotsData.coins_bonus_value += 100
+
+func chance_up():
+	Global.luck_probability += 1
+
+func speed_upgrade():
+	Global.slot_wait_time -= 0.25
+	print(Global.slot_wait_time)

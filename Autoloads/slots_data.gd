@@ -10,10 +10,10 @@ var slots : Array[Slot] = [
 	Slot.new(3, 1, blue_capsule), # blue capsule
 	Slot.new(4, 1, green_capsule), # green capsule
 	Slot.new(5, 1, yellow_capsule), # yellow capsule
-	Slot.new(6, 2, lemon), # lemon
+	Slot.new(6, 3, lemon), # lemon
 	Slot.new(7, 1, cherry), # cherry
-	Slot.new(8, 1, water_melon), # water melon
-	Slot.new(9, 1, grapes), # grapes
+	Slot.new(8, 0.5, water_melon), # water melon
+	Slot.new(9, 0.5, grapes), # grapes
 	Slot.new(10, 0.5, clover), # clover
 	Slot.new(11, 0.5, horse_shoe), # horse shoe
 	Slot.new(12, 0.01, jackpot) # 777

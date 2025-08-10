@@ -14,7 +14,6 @@ func _ready() -> void:
 	for upgrade in UpgradesData.upgrades_to_buy:
 		if Global.upgrades_bought.has(upgrade.id): continue
 		var button := create_button(upgrade.id, upgrade.cost)
-		print(button.upgrade_cost)
 		upgrade_container.add_child(button)
 
 
