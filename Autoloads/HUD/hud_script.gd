@@ -6,6 +6,7 @@ extends CanvasLayer
 
 const SLOT_MACHINE_SCENE = preload("res://Slot machine/slot_machine.tscn")
 const UPGRADE_SHOP_SCENE = preload("res://Shop/upgrade_shop.tscn")
+const GACHA_MACHINE = preload("res://Gacha Machine/gacha_machine.tscn")
 
 var buttons : Array[Button] = []
 var selected_button : Button = null
@@ -39,6 +40,7 @@ func _on_gacha_machine_pressed() -> void:
 		button.disabled = false
 	gacha_machine.disabled = true
 	gacha_machine.release_focus()
+	get_tree().change_scene_to_packed(GACHA_MACHINE)
 
 
 func _on_upgrades_pressed() -> void:
