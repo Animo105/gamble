@@ -64,5 +64,5 @@ func _on_bet_text_focus_entered() -> void:
 		bet_text.text = str(Global.bet_ammount)
 
 
-func _on_bet_text_text_submitted(new_text: String) -> void:
+func _on_bet_text_text_submitted(_new_text: String) -> void:
 	bet_text.release_focus()

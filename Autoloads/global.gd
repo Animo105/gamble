@@ -9,6 +9,8 @@ var money : int = 500:
 
 var bet_ammount : int = 10
 
+var upgrades_bought : Array[int] = []
+
 var capsules : Dictionary[String, int] = {
 	"blue":0,
 	"green":0,

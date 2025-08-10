@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://g4agobb7vun1" path="res://UI/Fonts/PixelOperatorMonoHB.ttf" id="2_qdr42"]
 
 [node name="upgrade_button" type="Control"]
+custom_minimum_size = Vector2(147, 28)
 layout_mode = 3
 anchor_right = 0.459
 anchor_bottom = 0.156
