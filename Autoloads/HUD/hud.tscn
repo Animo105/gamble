@@ -75,6 +75,14 @@ theme_override_fonts/font = ExtResource("1_jis8a")
 theme_override_font_sizes/font_size = 8
 text = "Clear data"
 
+[node name="Label" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 25.0
+offset_right = 72.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 5
+text = "Performance"
+
 [connection signal="pressed" from="HBoxContainer/slot machine" to="." method="_on_slot_machine_pressed"]
 [connection signal="pressed" from="HBoxContainer/gacha machine" to="." method="_on_gacha_machine_pressed"]
 [connection signal="pressed" from="HBoxContainer/upgrades" to="." method="_on_upgrades_pressed"]

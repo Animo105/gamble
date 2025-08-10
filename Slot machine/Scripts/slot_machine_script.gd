@@ -41,9 +41,9 @@ func _on_lever_button_pressed() -> void:
 			await get_tree().create_timer(Global.slot_wait_time).timeout
 			slots[i].selected = Global.slot_possibility[random.rand_weighted(modified_weigts)]
 		# check pour la win
+		await get_tree().create_timer(1).timeout
 		if slots[0].selected == slots[1].selected && slots[1].selected == slots[2].selected:
 			Global.money += SlotsData.slots[slots[0].selected].action.call(Global.bet_ammount)
-		await get_tree().create_timer(1).timeout
 		lever_sprite.play("lever_up")
 		lever_button.disabled = false
 		for slot in slots:

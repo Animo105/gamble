@@ -42,6 +42,8 @@ func _on_gacha_machine_pressed() -> void:
 	gacha_machine.release_focus()
 	get_tree().change_scene_to_packed(GACHA_MACHINE)
 
+func _process(delta: float) -> void:
+	$Label.text = "%.2f MB de mémoire" % (Performance.get_monitor(Performance.MEMORY_STATIC)/ (1024.0 * 1024.0))
 
 func _on_upgrades_pressed() -> void:
 	for button in buttons:
