@@ -12,6 +12,7 @@ func _ready() -> void:
 		file.close()
 		if !data is Array:
 			push_error("slots are not organized into an array")
+			return
 		for slot in data:
 			if !slot.has("id") : push_error("slot without id : ", slot); continue
 			if !slot.has("weight") : push_error("slot without weight : ", slot); continue

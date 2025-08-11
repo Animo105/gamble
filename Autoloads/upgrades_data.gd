@@ -17,6 +17,7 @@ func _ready() -> void:
 		file.close()
 		if !data is Array:
 			push_error("Upgrades are not organized into an array")
+			return
 		for upgrade in data:
 			# crée l'upgrde
 			if !upgrade.has("id") : push_error("Upgrade without id : ", upgrade); continue

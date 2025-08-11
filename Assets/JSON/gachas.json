@@ -1,0 +1,60 @@
+[
+	{
+		"exp":1000,
+		"items":[
+			{
+				"id":0,
+				"name":"4 Leaf Clover",
+				"description":"Increase luck.",
+				"texture":"clover.png",
+				"expression":"0",
+			},
+			{
+				"id":1,
+				"name":"Golden Horseshoe",
+				"description":"Increase luck.",
+				"texture":"horseshoe.png",
+				"expression":"0",
+			},
+			{
+				"id":2,
+				"name":"Unused Gear",
+				"description":"Increase slot speed.",
+				"texture":"gear.png",
+				"expression":"0",
+			},
+		],
+		"waifus":[
+			{
+				"id":4,
+				"name":"Unused Gear",
+				"description":"Increase slot speed.",
+				"texture":"gear.png",
+			},
+		]
+	},
+	{
+		"exp":5000,
+		"items":[
+			{
+				"id":3,
+				"name":"VIP tag",
+				"description":"Increase exp gain.",
+				"texture":"horseshoe.png",
+				"expression":"0",
+			},
+		],
+		"waifus":[
+			
+		]
+	},
+	{
+		"exp":10000,
+		"items":[
+			
+		],
+		"waifus":[
+			
+		]
+	}
+]

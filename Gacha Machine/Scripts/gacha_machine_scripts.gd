@@ -34,10 +34,9 @@ func _on_blue_capsules_pressed() -> void:
 		Global.money -= Global.base_capsule_price
 	else:
 		return
-	
-	# GACHA TIME!!!
-	print("GACHA!")
 	update_buttons()
+	# GACHA TIME!!!
+	roll(0)
 
 
 func _on_pink_capsules_pressed() -> void:
@@ -48,10 +47,9 @@ func _on_pink_capsules_pressed() -> void:
 		Global.money -= (Global.base_capsule_price * 5)
 	else:
 		return
-	
-	# GACHA TIME!!!
-	print("GACHA!")
 	update_buttons()
+	# GACHA TIME!!!
+	roll(1)
 
 
 func _on_yellow_capsules_pressed() -> void:
@@ -62,7 +60,15 @@ func _on_yellow_capsules_pressed() -> void:
 		Global.money -= (Global.base_capsule_price*10)
 	else:
 		return
-	
-	# GACHA TIME!!!
-	print("GACHA!")
 	update_buttons()
+	# GACHA TIME!!!
+	roll(2)
+
+func roll(idx : int):
+	var prize : GachasData.Prize = GachasData.gachas[idx].roll()
+	if prize == null:
+		print("exp")
+	elif prize is GachasData.Item:
+		print("item")
+	elif prize is GachasData.Waifu:
+		print("WAIFU")
