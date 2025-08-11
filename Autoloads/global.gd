@@ -20,6 +20,6 @@ var capsules : Dictionary[int, int] = {
 # Slot machine global
 var bet_ammount : int = 10
 var is_bet_allowed : bool = false
-var slot_possibility : Array[int] = [1, 2 ,3 ,6 ,7]
+var slot_possibility : Array[int] = [1, 2 ,3 ,4 ,13]
 var slot_wait_time : float = 1.25
 var luck_probability : float = 2
