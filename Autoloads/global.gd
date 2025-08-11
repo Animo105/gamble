@@ -3,11 +3,9 @@ extends Node
 signal _money_update
 signal experience_update
 
-var level : int = 0:
-	set(value):
-		level = value
-
+var level : int = 0
 var levelUpAmmount : int = 100
+
 var experience : int = 0:
 	set(value):
 		experience = value
@@ -21,8 +19,10 @@ var money : int = 500:
 	set(value):
 		money = value
 		_money_update.emit()
-var upgrades_bought : Dictionary[int, int] = {}
 
+var upgrades_bought : Dictionary[int, int] = {}
+var items_won : Dictionary[int, int] = {}
+var waifus_won : Dictionary[int, int] = {}
 
 # Gacha machine global
 var base_capsule_price: int = 1000

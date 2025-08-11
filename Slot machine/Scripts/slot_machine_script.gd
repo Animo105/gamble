@@ -10,8 +10,7 @@ var weights : PackedFloat32Array
 
 
 func _ready() -> void:
-	var main_music = $mainMusic
-	main_music.play()
+	$mainMusic.play()
 	slots.append($Slot)
 	slots.append($Slot2)
 	slots.append($Slot3)
@@ -23,11 +22,8 @@ func _ready() -> void:
 		weights.append(SlotsData.slots[possibility].weight)
 
 func _on_lever_button_pressed() -> void:
-	print("exp: ",Global.experience)
 	# check si tu peux pull le lever, animation + take money
 	if Global.money >= Global.bet_ammount:
-		var gambling = $gambling
-		gambling.play()
 		lever_sprite.play("lever_down")
 		lever_button.disabled = true
 		var bet = Global.bet_ammount
@@ -55,6 +51,8 @@ func _on_lever_button_pressed() -> void:
 			winSound.play()
 		else:
 			Global.experience += 10
+		
+		# reset lever
 		lever_sprite.play("lever_up")
 		lever_button.disabled = false
 		for slot in slots:

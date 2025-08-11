@@ -27,7 +27,7 @@
 		"waifus":[
 			{
 				"id":4,
-				"name":"Unused Gear",
+				"name":"la fameuse Amélie",
 				"description":"Increase slot speed.",
 				"texture":"gear.png",
 			},
@@ -40,7 +40,7 @@
 				"id":3,
 				"name":"VIP tag",
 				"description":"Increase exp gain.",
-				"texture":"horseshoe.png",
+				"texture":"vip_tag.png",
 				"expression":"0",
 			},
 		],

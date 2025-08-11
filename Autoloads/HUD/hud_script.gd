@@ -10,6 +10,10 @@ const SLOT_MACHINE_SCENE = preload("res://Slot machine/slot_machine.tscn")
 const UPGRADE_SHOP_SCENE = preload("res://Shop/upgrade_shop.tscn")
 const GACHA_MACHINE = preload("res://Gacha Machine/gacha_machine.tscn")
 
+@onready var level_label: Label = $exp/level/Label
+@onready var money_label: Label = $money/Label
+@onready var exp_bar: ProgressBar = $"exp/exp bar"
+
 var buttons : Array[Button] = []
 var selected_button : Button = null
 
@@ -30,10 +34,12 @@ func _ready() -> void:
 	_experience_update()
 
 func _money_update():
-	$money/Label.text = "%d$" % Global.money
+	money_label.text = "%d$" % Global.money
 
 func _experience_update():
-	$exp/Label.text = str(Global.level)
+	exp_bar.value = Global.experience
+	exp_bar.max_value = Global.levelUpAmmount
+	level_label.text = "Lv.%d" % Global.level
 
 
 func _on_slot_machine_pressed() -> void:

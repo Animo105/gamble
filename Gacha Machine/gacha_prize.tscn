@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://k47crttpllq0"]
+
+[ext_resource type="Script" uid="uid://cybwqcbj025wt" path="res://Gacha Machine/Scripts/gacha_prize.gd" id="1_0ccq2"]
+[ext_resource type="Texture2D" uid="uid://br0hrug1oueov" path="res://Assets/Gacha/Items/clover.png" id="1_r5nje"]
+[ext_resource type="FontFile" uid="uid://g4agobb7vun1" path="res://UI/Fonts/PixelOperatorMonoHB.ttf" id="3_2werw"]
+[ext_resource type="Texture2D" uid="uid://dvcsfpik2yn6y" path="res://Assets/Gacha/stars.png" id="4_s46bm"]
+
+[node name="Gacha Prize" type="Control"]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 3
+offset_right = 80.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ccq2")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 3.0
+offset_right = 8.0
+offset_bottom = 19.0
+grow_horizontal = 2
+texture = ExtResource("1_r5nje")
+
+[node name="Label name" type="Label" parent="Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.0
+anchor_top = 1.25
+anchor_right = 3.031
+anchor_bottom = 1.812
+offset_right = -0.496002
+offset_bottom = 0.00799942
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_2werw")
+theme_override_font_sizes/font_size = 8
+text = "ITEM NAME"
+horizontal_alignment = 1
+
+[node name="Label description" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_2werw")
+theme_override_font_sizes/font_size = 5
+text = "ITEM DESCRIPTION"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="stars" type="Sprite2D" parent="."]
+position = Vector2(40, 20)
+texture = ExtResource("4_s46bm")
+hframes = 5

@@ -1,5 +1,7 @@
 extends Node
 
+var gachas_list : Array[Prize] = []
+
 var gachas : Array[Gacha] = []
 
 func _ready() -> void:
@@ -30,6 +32,7 @@ func _ready() -> void:
 				if !item.has("expression") : push_error("item without expression : ", item); continue
 				var new_item : Item = Item.new(item["id"], item["name"], item["description"], item["texture"], item["expression"])
 				new_gacha.items.append(new_item)
+				gachas_list.append(new_item)
 				
 
 			for waifu in gacha["waifus"]:
@@ -52,7 +55,17 @@ class Gacha:
 		var choosen_one : int = rng.rand_weighted([5, 1])
 		var prize : Prize
 		if choosen_one == 0: #pick item
-			prize = items.pick_random()
+			var choosen : Item = items.pick_random()
+			if Global.items_won.has(choosen.id):
+				if Global.items_won[choosen.id] >= 5:
+					return null
+				else:
+					Global.items_won[choosen.id] += 1
+					prize = choosen
+			else:
+				Global.items_won[choosen.id] = 1
+				prize = choosen
+		
 		else: # pick waifu
 			prize = waifus.pick_random()
 		return prize
