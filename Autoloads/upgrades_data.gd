@@ -72,4 +72,5 @@ class Upgrade:
 		if level == max_upgrade:
 			UpgradesData.upgrades_to_buy.erase(self)
 		else:
+			@warning_ignore("narrowing_conversion")
 			cost *= price_multiplayer

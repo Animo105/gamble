@@ -18,8 +18,6 @@ func _ready() -> void:
 			if !slot.has("expression") : push_error("slot without expression : ", slot); continue
 			var new_slot : Slot = Slot.new(slot["id"], slot["weight"], slot["expression"])
 			slots.append(new_slot)
-			print(slot)
-			print(new_slot)
 
 
 class Slot:
