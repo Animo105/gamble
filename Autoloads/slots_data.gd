@@ -20,7 +20,6 @@ func _ready() -> void:
 			if slot.has("exp"): new_slot.exp_gain = slot["exp"]
 			slots.append(new_slot)
 
-
 class Slot:
 	var id : int
 	var weight : float

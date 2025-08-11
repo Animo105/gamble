@@ -4,6 +4,10 @@ extends CanvasLayer
 @onready var gacha_machine: Button = $"HBoxContainer/gacha machine"
 @onready var upgrades: Button = $HBoxContainer/upgrades
 
+@onready var pause_layer: CanvasLayer = $"pause layer"
+@onready var resume: Button = $"pause layer/CenterContainer/VBoxContainer/resume"
+@onready var save___quit: Button = $"pause layer/CenterContainer/VBoxContainer/save & quit"
+
 const SLOT_MACHINE_SCENE = preload("res://Slot machine/slot_machine.tscn")
 const UPGRADE_SHOP_SCENE = preload("res://Shop/upgrade_shop.tscn")
 const GACHA_MACHINE = preload("res://Gacha Machine/gacha_machine.tscn")
@@ -17,6 +21,8 @@ func disable_button(is_disabled : bool):
 			button.disabled = is_disabled
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	pause_layer.visible = false
 	buttons.append(slot_machine)
 	buttons.append(gacha_machine)
 	buttons.append(upgrades)
@@ -43,7 +49,15 @@ func _on_gacha_machine_pressed() -> void:
 	get_tree().change_scene_to_packed(GACHA_MACHINE)
 
 func _process(_delta: float) -> void:
-	$Label.text = "%.2f MB de mémoire" % (Performance.get_monitor(Performance.MEMORY_STATIC)/ (1024.0 * 1024.0))
+	$"pause layer/Label".text = "%.2f MB de mémoire" % (Performance.get_monitor(Performance.MEMORY_STATIC)/ (1024.0 * 1024.0))
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		if pause_layer.visible: # en pause
+			_on_resume_pressed()
+		else:
+			get_tree().paused = true
+			pause_layer.visible = true
 
 func _on_upgrades_pressed() -> void:
 	for button in buttons:
@@ -63,3 +77,13 @@ func _on_clear_data_pressed() -> void:
 
 func _on_cheat_pressed():
 	Global.money += 1000000
+
+
+func _on_resume_pressed() -> void:
+	pause_layer.visible = false
+	get_tree().paused = false
+
+
+func _on_save__quit_pressed() -> void:
+	SaveManager.save_data()
+	get_tree().quit()
