@@ -10,11 +10,12 @@
 	},
 	{
 		"id":1,
-		"name":"Monetary Deflation",
-		"description":"Increase coins value.",
+		"name":"Fruits Connoiseur",
+		"description":"Inrease the value of fruits.",
 		"cost":200,
-		"max_upgrade":3,
-		"expression":""
+		"max_upgrade":6,
+		"price_mult":3,
+		"expression":"func.increase_fruits_mult(0.5)"
 	},
 	{
 		"id":2,
@@ -22,5 +23,14 @@
 		"description":"Allow to bet larger sums of money.",
 		"cost":500,
 		"expression":"func.allow_bet(true)"
-	}
+	},
+	{
+		"id":3,
+		"name":"Perfect Timing",
+		"description":"Boost chances of winning.",
+		"cost":500,
+		"max_upgrade":4,
+		"price_mult":2,
+		"expression":"func.increase_luck(0.5)"
+	},
 ]

@@ -1,6 +1,7 @@
 extends Node
 
-var coins_bonus_value :int= 0
+var coins_bonus_value : int = 0
+var fruits_mult_bonus : float = 1
 
 var slots : Array[Slot] = [
 	# id, weight, action
@@ -48,16 +49,16 @@ func yellow_capsule(_amount : int)->int:
 	return 0
 
 func lemon(amount)->int:
-	return (amount * 2) + 1000
+	return amount * 3 * fruits_mult_bonus
 
 func cherry(amount)->int:
-	return (amount * 3) + 5000
+	return amount * 4 * fruits_mult_bonus
 
 func water_melon(amount)->int:
-	return amount * 4
+	return amount * 5 * fruits_mult_bonus
 
 func grapes(amount)->int:
-	return amount * 5
+	return amount * 6 * fruits_mult_bonus
 
 func clover(_amount)->int:
 	return 0
