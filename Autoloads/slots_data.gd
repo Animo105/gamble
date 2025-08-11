@@ -17,6 +17,7 @@ func _ready() -> void:
 			if !slot.has("weight") : push_error("slot without weight : ", slot); continue
 			if !slot.has("expression") : push_error("slot without expression : ", slot); continue
 			var new_slot : Slot = Slot.new(slot["id"], slot["weight"], slot["expression"])
+			if slot.has("exp"): new_slot.exp_gain = slot["exp"]
 			slots.append(new_slot)
 
 
@@ -24,6 +25,7 @@ class Slot:
 	var id : int
 	var weight : float
 	var expression : String
+	var exp_gain : int = 100
 	
 	func _init(slot_id : int, slot_weight : float, slot_expression : String) -> void:
 		id = slot_id

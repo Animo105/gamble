@@ -33,6 +33,9 @@ func decrease_base_gacha_price(amount : int):
 	Global.base_capsule_price -= amount
 	print("Derease base gacha game price")
 
+func increase_weight_for_slot(slot_id : int, weight_increase : float):
+	SlotsData.slots[slot_id].weight += weight_increase
+
 # ################### Méthodes pour get des valeurs ################# #
 func get_bet_amount()->int:
 	return Global.bet_ammount
