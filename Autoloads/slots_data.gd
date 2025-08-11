@@ -1,7 +1,7 @@
 extends Node
 
 var coins_bonus_value : int = 0
-var fruits_mult_bonus : float = 1
+var fruits_mult_bonus : float = 0
 
 var slots : Array[Slot] = []
 
@@ -30,11 +30,11 @@ class Slot:
 		weight = slot_weight
 		expression = slot_expression
 	
-	func get_reward()->int:
+	func get_reward(bet_amount : int)->int:
 		var ex : Expression = Expression.new()
-		var err = ex.parse(expression, ["func"])
+		var err = ex.parse(expression, ["func", "amount"])
 		if err == OK:
-			var result : int = ex.execute([ExpressionFunction])
+			var result : int = ex.execute([ExpressionFunction, bet_amount])
 			if ex.has_execute_failed():
 				push_error("Execution failed in slot ", id, " : ", ex.get_error_text())
 				return 0

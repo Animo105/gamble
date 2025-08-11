@@ -29,6 +29,7 @@ func _on_lever_button_pressed() -> void:
 		gambling.play()
 		lever_sprite.play("lever_down")
 		lever_button.disabled = true
+		var bet = Global.bet_ammount
 		Global.money += -Global.bet_ammount
 	
 		# pull le levier
@@ -47,7 +48,7 @@ func _on_lever_button_pressed() -> void:
 		# check pour la win
 		await get_tree().create_timer(1).timeout
 		if slots[0].selected == slots[1].selected && slots[1].selected == slots[2].selected:
-			var reward :int= SlotsData.slots[slots[0].selected].get_reward()
+			var reward :int= SlotsData.slots[slots[0].selected].get_reward(bet)
 			print(reward,"$")
 			Global.money += reward
 			var winSound = $winSound
@@ -65,6 +66,7 @@ func _on_lever_button_pressed() -> void:
 func _on_bet_text_focus_exited() -> void:
 	var number = int(bet_text.text)
 	number = clamp(number, 10, Global.money)
+	if number < 10 : number = 10
 	bet_text.text = "%d$" % number
 	Global.bet_ammount = number
 

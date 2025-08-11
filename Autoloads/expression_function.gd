@@ -24,9 +24,10 @@ func increase_slot_speed(amount : float):
 	Global.slot_wait_time -= amount
 	print("increase slot speed")
 
-func increase_capsule(type : int, amount : int):
+func increase_capsule(type : int, amount : int)->int:
 	Global.capsules[type] += amount
 	print("Capsule earned")
+	return 0
 
 func decrease_base_gacha_price(amount : int):
 	Global.base_capsule_price -= amount
