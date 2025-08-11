@@ -20,13 +20,13 @@
 	{
 		"id":2,
 		"name":"Going All In!",
-		"description":"Allow to bet larger sums of money.",
+		"description":"Allow to bet larger sums of money.\n(why would i want do that?...)",
 		"cost":500,
 		"expression":"func.allow_bet(true)"
 	},
 	{
 		"id":3,
-		"name":"Perfect Timing",
+		"name":"99% of gamblers quit...",
 		"description":"Boost chances of winning.",
 		"cost":500,
 		"max_upgrade":4,
