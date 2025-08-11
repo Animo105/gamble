@@ -8,4 +8,4 @@ script = ExtResource("1_gkuw1")
 
 [node name="Slots" type="Sprite2D" parent="."]
 texture = ExtResource("2_s8o2j")
-hframes = 14
+hframes = 15
