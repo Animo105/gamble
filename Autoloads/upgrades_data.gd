@@ -7,7 +7,7 @@ var upgrades_to_buy : Array[Upgrade] = []
 func apply_upgrades_bought():
 	for key in Global.upgrades_bought.keys():
 		for i in range(Global.upgrades_bought[key]):
-			upgrades[key].apply(false)
+			upgrades[key].apply()
 
 func _ready() -> void:
 	# load upgrade
@@ -46,6 +46,7 @@ class Upgrade:
 	var nom : String
 	var description : String
 	var max_upgrade : int = 1
+	var level : int = 0
 	var price_multiplayer : float = 1.5
 	var cost : int
 	var expression : String
@@ -57,26 +58,20 @@ class Upgrade:
 		cost = upgrade_cost
 		expression = upgrade_expression
 	
-	func apply(check_bought : bool = true):
-		var data = {"func":ExpressionFunction}
+	func apply():
 		# create and execute expression
 		var ex : Expression = Expression.new()
 		@warning_ignore("static_called_on_instance")
-		var err = ex.parse(expression, data.keys())
+		var err = ex.parse(expression, ["func"])
 		if err == OK:
 			@warning_ignore("static_called_on_instance")
-			ex.execute(data.values())
-			
-			# check pour add l'upgrade a la liste des acheter
-			if check_bought:
-				if Global.upgrades_bought.has(id):
-					Global.upgrades_bought[id] += 1
-				else:
-					Global.upgrades_bought[id] = 1
-			if Global.upgrades_bought[id] < max_upgrade:
-				@warning_ignore("narrowing_conversion")
-				cost *= price_multiplayer
-			else:
-				UpgradesData.upgrades_to_buy.erase(self)
+			ex.execute([ExpressionFunction])
 		else:
 			push_error("Error in upgrade ", nom, " : ", ex.get_error_text())
+		
+		# update level
+		level += 1
+		if level == max_upgrade:
+			UpgradesData.upgrades_to_buy.erase(self)
+		else:
+			cost *= price_multiplayer

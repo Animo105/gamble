@@ -15,6 +15,17 @@ static func get_expression_access()->Dictionary:
 		"coin_value_bonus" : SlotsData.coins_bonus_value,
 	}
 
+func increase_money(amount : int):
+	Global.money += amount
+
 func increase_coin_value(amount : int):
 	SlotsData.coins_bonus_value += amount
 	print("incrase coin value")
+
+func increase_lunck(amount : float):
+	Global.luck_probability += amount
+	print("increase luck")
+
+func allow_bet(allow : bool):
+	Global.is_bet_allowed = allow
+	print("bet has been changed")
