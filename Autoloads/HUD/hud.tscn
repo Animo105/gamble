@@ -106,7 +106,7 @@ text = "Save"
 [node name="save & quit" type="Button" parent="pause layer/CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_jis8a")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 8
 text = "Save & Quit"
 
 [node name="cheat" type="Button" parent="pause layer"]
