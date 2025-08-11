@@ -61,10 +61,8 @@ class Upgrade:
 	func apply():
 		# create and execute expression
 		var ex : Expression = Expression.new()
-		@warning_ignore("static_called_on_instance")
 		var err = ex.parse(expression, ["func"])
 		if err == OK:
-			@warning_ignore("static_called_on_instance")
 			ex.execute([ExpressionFunction])
 		else:
 			push_error("Error in upgrade ", nom, " : ", ex.get_error_text())

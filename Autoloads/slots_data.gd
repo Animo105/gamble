@@ -3,32 +3,49 @@ extends Node
 var coins_bonus_value : int = 0
 var fruits_mult_bonus : float = 1
 
-var slots : Array[Slot] = [
-	# id, weight, action
-	Slot.new(0, 0, func(_amount): return 0), # blank
-	Slot.new(1, 2, coin), # single coin
-	Slot.new(2, 0.5, coins), # pile of coins
-	Slot.new(3, 1, blue_capsule), # blue capsule
-	Slot.new(4, 1, green_capsule), # green capsule
-	Slot.new(5, 1, yellow_capsule), # yellow capsule
-	Slot.new(6, 3, lemon), # lemon
-	Slot.new(7, 1, cherry), # cherry
-	Slot.new(8, 0.5, water_melon), # water melon
-	Slot.new(9, 0.5, grapes), # grapes
-	Slot.new(10, 0.5, clover), # clover
-	Slot.new(11, 0.5, horse_shoe), # horse shoe
-	Slot.new(12, 0.01, jackpot) # 777
-]
+var slots : Array[Slot] = []
+
+func _ready() -> void:
+	var file = FileAccess.open("res://Assets/JSON/slots.json", FileAccess.READ)
+	if file:
+		var data = JSON.parse_string(file.get_as_text())
+		file.close()
+		if !data is Array:
+			push_error("slots are not organized into an array")
+		for slot in data:
+			if !slot.has("id") : push_error("slot without id : ", slot); continue
+			if !slot.has("weight") : push_error("slot without weight : ", slot); continue
+			if !slot.has("expression") : push_error("slot without expression : ", slot); continue
+			var new_slot : Slot = Slot.new(slot["id"], slot["weight"], slot["expression"])
+			slots.append(new_slot)
+			print(slot)
+			print(new_slot)
+
 
 class Slot:
 	var id : int
 	var weight : float
-	var action : Callable
+	var expression : String
 	
-	func _init(slot_id : int, slot_weight : float, slot_action : Callable) -> void:
+	func _init(slot_id : int, slot_weight : float, slot_expression : String) -> void:
 		id = slot_id
 		weight = slot_weight
-		action = slot_action
+		expression = slot_expression
+	
+	func get_reward()->int:
+		var ex : Expression = Expression.new()
+		var err = ex.parse(expression, ["func"])
+		if err == OK:
+			var result : int = ex.execute([ExpressionFunction])
+			if ex.has_execute_failed():
+				push_error("Execution failed in slot ", id, " : ", ex.get_error_text())
+				return 0
+			else:
+				return result
+		else:
+			push_error("Error in slot ", id, " : ", ex.get_error_text())
+			return 0
+
 
 func coin(_amount : int)->int:
 	return 100 + coins_bonus_value
