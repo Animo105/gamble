@@ -5,16 +5,16 @@
 			{
 				"id":0,
 				"name":"4 Leaf Clover",
-				"description":"Increase luck.",
+				"description":"Slightly increase luck.",
 				"texture":"clover.png",
-				"expression":"0",
+				"expression":"func.increase_luck(0.1)",
 			},
 			{
 				"id":1,
 				"name":"Golden Horseshoe",
-				"description":"Increase luck.",
+				"description":"Slightly increase luck.",
 				"texture":"horseshoe.png",
-				"expression":"0",
+				"expression":"func.increase_luck(0.1)",
 			},
 			{
 				"id":2,
@@ -28,7 +28,7 @@
 			{
 				"id":4,
 				"name":"la fameuse Amélie",
-				"description":"Increase slot speed.",
+				"description":"Jsp c qui demande a arnaud.",
 				"texture":"gear.png",
 			},
 		]

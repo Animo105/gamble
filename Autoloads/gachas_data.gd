@@ -51,6 +51,12 @@ func get_item_by_id(id : int)->Item:
 			return item
 	return null
 
+func apply_item_won():
+	for key in Global.items_won.keys():
+		var item :Item= get_item_by_id(key)
+		for i in range(Global.items_won[key]):
+			item.apply()
+
 class Gacha:
 	var exp_prize : int = 10000
 	var items : Array[Item]
@@ -71,6 +77,7 @@ class Gacha:
 			else:
 				Global.items_won[choosen.id] = 1
 				prize = choosen
+			prize.apply()
 		
 		else: # pick waifu
 			prize = waifus.pick_random()
@@ -96,7 +103,13 @@ class Item extends  Prize:
 		expression = new_expression
 	
 	func apply():
-		pass
+		# create and execute expression
+		var ex : Expression = Expression.new()
+		var err = ex.parse(expression, ["func"])
+		if err == OK:
+			ex.execute([ExpressionFunction])
+		else:
+			push_error("Error in upgrade ", nom, " : ", ex.get_error_text())
 
 class Waifu extends Prize:
 	

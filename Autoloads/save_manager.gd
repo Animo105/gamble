@@ -51,6 +51,7 @@ func load_data():
 			if save_dic.has("items"):
 				for key in save_dic["items"].keys():
 					Global.items_won[int(key)] = int(save_dic["items"][key])
+					GachasData.apply_item_won()
 			# load le nombre de capsules
 			if save_dic.has("capsules"):
 				if save_dic["capsules"] is Dictionary:
