@@ -13,6 +13,8 @@ func save_data():
 	save_dic["bet amount"] = Global.bet_ammount
 	save_dic["upgrades"] = Global.upgrades_bought
 	save_dic["capsules"] = Global.capsules
+	save_dic["level"] = Global.level
+	save_dic["exp"] = Global.experience
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
@@ -45,7 +47,11 @@ func load_data():
 				if save_dic["capsules"] is Dictionary:
 					for key in save_dic["capsules"]:
 						Global.capsules[int(key)] = int(save_dic["capsules"][key])
-
+			if save_dic.has("level"):
+				for i in range(save_dic["level"]):
+					Global.level_up()
+			if save_dic.has("exp"): Global.experience = save_dic["exp"]
+			
 func reset_data():
 	if DirAccess.remove_absolute(SAVE_PATH) == OK:
 		print("data reseted")

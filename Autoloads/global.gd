@@ -5,15 +5,17 @@ signal experience_update
 
 var level : int = 0
 var levelUpAmmount : int = 100
-
 var experience : int = 0:
 	set(value):
 		experience = value
 		if experience >= levelUpAmmount:
 			experience -= levelUpAmmount
-			level += 1
-			levelUpAmmount *= 1.2
+			level_up()
 		experience_update.emit()
+
+func level_up():
+	level += 1
+	levelUpAmmount *= 1.2
 
 var money : int = 500:
 	set(value):

@@ -37,8 +37,8 @@ func _money_update():
 	money_label.text = "%d$" % Global.money
 
 func _experience_update():
-	exp_bar.value = Global.experience
 	exp_bar.max_value = Global.levelUpAmmount
+	exp_bar.value = Global.experience
 	level_label.text = "Lv.%d" % Global.level
 
 

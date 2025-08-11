@@ -55,7 +55,7 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_jis8a")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/fill = SubResource("StyleBoxFlat_672b6")
-value = 50.0
+value = 100.0
 
 [node name="exp sign" type="TextureRect" parent="exp/exp bar"]
 layout_mode = 1
