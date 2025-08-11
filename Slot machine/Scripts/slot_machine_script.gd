@@ -8,7 +8,10 @@ extends Node2D
 var slots : Array[MachineSlot] = []
 var weights : PackedFloat32Array
 
+
 func _ready() -> void:
+	var main_music = $mainMusic
+	main_music.play()
 	slots.append($Slot)
 	slots.append($Slot2)
 	slots.append($Slot3)
@@ -22,6 +25,8 @@ func _ready() -> void:
 func _on_lever_button_pressed() -> void:
 	# check si tu peux pull le lever, animation + take money
 	if Global.money >= Global.bet_ammount:
+		var gambling = $gambling
+		gambling.play()
 		lever_sprite.play("lever_down")
 		lever_button.disabled = true
 		Global.money += -Global.bet_ammount
@@ -43,6 +48,8 @@ func _on_lever_button_pressed() -> void:
 		await get_tree().create_timer(1).timeout
 		if slots[0].selected == slots[1].selected && slots[1].selected == slots[2].selected:
 			Global.money += SlotsData.slots[slots[0].selected].action.call(Global.bet_ammount)
+			var winSound = $winSound
+			winSound.play()
 		lever_sprite.play("lever_up")
 		lever_button.disabled = false
 		for slot in slots:

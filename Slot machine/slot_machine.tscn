@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://rrqvetwswhe0"]
+[gd_scene load_steps=19 format=3 uid="uid://rrqvetwswhe0"]
 
 [ext_resource type="Script" uid="uid://deeiretn6ypig" path="res://Slot machine/Scripts/slot_machine_script.gd" id="1_8lydx"]
 [ext_resource type="Texture2D" uid="uid://dxeaby3122vjx" path="res://Assets/Slot Machine/slot_machine_lever.png" id="2_u3mqo"]
 [ext_resource type="PackedScene" uid="uid://fv8dx326jo7k" path="res://Slot machine/slot.tscn" id="3_u3mqo"]
 [ext_resource type="FontFile" uid="uid://g4agobb7vun1" path="res://UI/Fonts/PixelOperatorMonoHB.ttf" id="4_umstu"]
+[ext_resource type="AudioStream" uid="uid://d4hyv7qlmmfbe" path="res://SFX/mainTheme.wav" id="6_kanra"]
+[ext_resource type="AudioStream" uid="uid://dp6x8wf55f2o5" path="res://SFX/bruit-casino.wav" id="7_kanra"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i6cki"]
 atlas = ExtResource("2_u3mqo")
@@ -141,6 +143,20 @@ text = "100"
 placeholder_text = "bet ammount"
 alignment = 1
 max_length = 10
+
+[node name="winSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="mainMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_kanra")
+volume_db = -4.0
+
+[node name="gambling" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_kanra")
+volume_db = 5.0
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="pressed" from="Slot Lever/Lever Button" to="." method="_on_lever_button_pressed"]
 [connection signal="focus_entered" from="bet text" to="." method="_on_bet_text_focus_entered"]
