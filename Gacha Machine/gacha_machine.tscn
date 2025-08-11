@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://p5xdefa2matt" path="res://Gacha Machine/Scripts/gacha_machine_scripts.gd" id="1_onmxo"]
 [ext_resource type="FontFile" uid="uid://g4agobb7vun1" path="res://UI/Fonts/PixelOperatorMonoHB.ttf" id="2_p0p7q"]
 [ext_resource type="Texture2D" uid="uid://dytm1fy0i5mwm" path="res://Assets/Gacha/capsules_gacha_bleu.png" id="3_6yh4g"]
-[ext_resource type="Texture2D" uid="uid://cuiiiowxv28o8" path="res://Assets/Gacha/capsules_gacha_vert.png" id="4_tvjct"]
+[ext_resource type="Texture2D" uid="uid://cta4gmc1guwuu" path="res://Assets/Gacha/capsules_rose.png" id="4_6yh4g"]
 [ext_resource type="Texture2D" uid="uid://b47gk1niro4r7" path="res://Assets/Gacha/capsules_gacha_jaune.png" id="5_1i34p"]
 
 [node name="Gacha Machine" type="Control"]
@@ -35,12 +35,12 @@ theme_override_font_sizes/font_size = 10
 text = "Blue Rolls"
 icon = ExtResource("3_6yh4g")
 
-[node name="green capsules" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="pink capsules" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_p0p7q")
 theme_override_font_sizes/font_size = 10
 text = "Green Rolls"
-icon = ExtResource("4_tvjct")
+icon = ExtResource("4_6yh4g")
 
 [node name="yellow capsules" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -50,5 +50,5 @@ text = "Yellow Rolls"
 icon = ExtResource("5_1i34p")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/blue capsules" to="." method="_on_blue_capsules_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/green capsules" to="." method="_on_green_capsules_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/pink capsules" to="." method="_on_green_capsules_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/yellow capsules" to="." method="_on_yellow_capsules_pressed"]

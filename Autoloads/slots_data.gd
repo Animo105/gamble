@@ -36,15 +36,15 @@ func coins(_amount : int)->int:
 	return 1000 + coins_bonus_value
 
 func blue_capsule(_amount : int)->int:
-	Global.capsules["blue"] += 1
+	Global.capsules[1] += 1
 	return 0
 
 func green_capsule(_amount : int)->int:
-	Global.capsules["green"] += 1
+	Global.capsules[2] += 1
 	return 0
 
 func yellow_capsule(_amount : int)->int:
-	Global.capsules["yellow"] += 1
+	Global.capsules[3] += 1
 	return 0
 
 func lemon(amount)->int:

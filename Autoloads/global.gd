@@ -11,10 +11,10 @@ var upgrades_bought : Dictionary[int, int] = {}
 
 # Gacha machine global
 var base_capsule_price: int = 1000
-var capsules : Dictionary[String, int] = {
-	"blue":0,
-	"green":0,
-	"yellow":0
+var capsules : Dictionary[int, int] = {
+	1:0,
+	2:0,
+	3:0
 }
 
 # Slot machine global

@@ -5,10 +5,22 @@
 		"description":"Possibility of rolling coins goes up.",
 		"cost":100,
 		"max_upgrade": 3,
+		"price_mult":2,
 		"expression":"func.increase_coin_value(100)"
 	},
 	{
 		"id":1,
-		"name":"Patate"
+		"name":"Monetary Deflation",
+		"description":"Increase coins value.",
+		"cost":200,
+		"max_upgrade":3,
+		"expression":""
+	},
+	{
+		"id":2,
+		"name":"Going All In!",
+		"description":"Allow to bet larger sums of money.",
+		"cost":500,
+		"expression":"func.allow_bet(true)"
 	}
 ]

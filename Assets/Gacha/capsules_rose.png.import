@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuiiiowxv28o8"
-path="res://.godot/imported/capsules_gacha_vert.png-0f212c4ed0e34c7e68afa3bfe1d587b2.ctex"
+uid="uid://cta4gmc1guwuu"
+path="res://.godot/imported/capsules_rose.png-047736c853497c042a1775f1dda35133.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gacha/capsules_gacha_vert.png"
-dest_files=["res://.godot/imported/capsules_gacha_vert.png-0f212c4ed0e34c7e68afa3bfe1d587b2.ctex"]
+source_file="res://Assets/Gacha/capsules_rose.png"
+dest_files=["res://.godot/imported/capsules_rose.png-047736c853497c042a1775f1dda35133.ctex"]
 
 [params]
 
