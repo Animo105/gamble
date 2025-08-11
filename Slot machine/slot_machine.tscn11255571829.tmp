@@ -1,0 +1,164 @@
+[gd_scene load_steps=19 format=3 uid="uid://rrqvetwswhe0"]
+
+[ext_resource type="Script" uid="uid://deeiretn6ypig" path="res://Slot machine/Scripts/slot_machine_script.gd" id="1_8lydx"]
+[ext_resource type="Texture2D" uid="uid://dxeaby3122vjx" path="res://Assets/Slot Machine/slot_machine_lever.png" id="2_u3mqo"]
+[ext_resource type="PackedScene" uid="uid://fv8dx326jo7k" path="res://Slot machine/slot.tscn" id="3_u3mqo"]
+[ext_resource type="FontFile" uid="uid://g4agobb7vun1" path="res://UI/Fonts/PixelOperatorMonoHB.ttf" id="4_umstu"]
+[ext_resource type="AudioStream" uid="uid://d4hyv7qlmmfbe" path="res://SFX/mainTheme.wav" id="6_kanra"]
+[ext_resource type="AudioStream" uid="uid://dp6x8wf55f2o5" path="res://SFX/bruit-casino.wav" id="7_kanra"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6cki"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(0, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmlme"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(0, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knkoj"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(16, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_842tv"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(32, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7abct"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(48, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpwbf"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(64, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfulg"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(64, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvm1u"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(48, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwfc2"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(32, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjjkd"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(16, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ucdj"]
+atlas = ExtResource("2_u3mqo")
+region = Rect2(0, 0, 16, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_knkoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6cki")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmlme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knkoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_842tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7abct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpwbf")
+}],
+"loop": false,
+"name": &"lever_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfulg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvm1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwfc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjjkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ucdj")
+}],
+"loop": false,
+"name": &"lever_up",
+"speed": 10.0
+}]
+
+[node name="Slot Machine" type="Node2D"]
+script = ExtResource("1_8lydx")
+
+[node name="Slot Lever" type="Node2D" parent="."]
+position = Vector2(239, 80)
+
+[node name="Lever Sprite" type="AnimatedSprite2D" parent="Slot Lever"]
+sprite_frames = SubResource("SpriteFrames_knkoj")
+animation = &"lever_down"
+frame = 4
+frame_progress = 1.0
+
+[node name="Lever Button" type="TextureButton" parent="Slot Lever"]
+offset_left = -6.0
+offset_top = -31.0
+offset_right = 6.0
+offset_bottom = 31.0
+
+[node name="Slot" parent="." instance=ExtResource("3_u3mqo")]
+position = Vector2(171, 80)
+
+[node name="Slot2" parent="." instance=ExtResource("3_u3mqo")]
+position = Vector2(189, 80)
+
+[node name="Slot3" parent="." instance=ExtResource("3_u3mqo")]
+position = Vector2(207, 80)
+
+[node name="bet text" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(70, 25)
+offset_left = 245.0
+offset_top = 150.0
+offset_right = 315.0
+offset_bottom = 175.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_umstu")
+theme_override_font_sizes/font_size = 9
+text = "100"
+placeholder_text = "bet ammount"
+alignment = 1
+max_length = 10
+
+[node name="winSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="mainMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_kanra")
+volume_db = -4.0
+
+[node name="gambling" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_kanra")
+volume_db = 5.0
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="Slot Lever/Lever Button" to="." method="_on_lever_button_pressed"]
+[connection signal="focus_entered" from="bet text" to="." method="_on_bet_text_focus_entered"]
+[connection signal="focus_exited" from="bet text" to="." method="_on_bet_text_focus_exited"]
+[connection signal="text_submitted" from="bet text" to="." method="_on_bet_text_text_submitted"]

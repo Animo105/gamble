@@ -1,6 +1,21 @@
 extends Node
 
 signal _money_update
+signal experience_update
+
+var level : int = 0:
+	set(value):
+		level = value
+
+var levelUpAmmount : int = 100
+var experience : int = 0:
+	set(value):
+		experience = value
+		if experience >= levelUpAmmount:
+			experience -= levelUpAmmount
+			level += 1
+			levelUpAmmount *= 1.2
+		experience_update.emit()
 
 var money : int = 500:
 	set(value):

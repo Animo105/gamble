@@ -1,87 +1,87 @@
 [
 	{
-		"id":0,
-		"weight":0,
-		"expression":"0",
-		"exp":100,
-		"name":""
+		"id": 0.0,
+		"weight": 0.0,
+		"expression": "0",
+		"exp": 100.0,
+		"name": ""
 	},
-		{
-		"id":1,
-		"weight":3,
-		"expression":"100+func.get_coins_bonus_value()",
-		"name":"coin"
+	{
+		"id": 1.0,
+		"weight": 3.0,
+		"expression": "100+func.get_coins_bonus_value()",
+		"name": "coin"
 	},
-		{
-		"id":2,
-		"weight":1.5,
-		"expression":"500+func.get_coins_bonus_value()",
-		"name":"coin pile"
+	{
+		"id": 2.0,
+		"weight": 1.5,
+		"expression": "500+func.get_coins_bonus_value()",
+		"name": "coin pile"
 	},
-		{
-		"id":3,
-		"weight":1,
-		"expression":"2000+func.get_coins_bonus_value()",
-		"name":"diamond"
+	{
+		"id": 3.0,
+		"weight": 1.0,
+		"expression": "2000+func.get_coins_bonus_value()",
+		"name": "diamond"
 	},
-		{
-		"id":4,
-		"weight":0.5,
-		"expression":"func.increase_capsule(1,1)",
-		"name":"blue capsule"
+	{
+		"id": 4.0,
+		"weight": 0.5,
+		"expression": "func.increase_capsule(1,1)",
+		"name": "blue capsule"
 	},
-		{
-		"id":5,
-		"weight":0.5,
-		"expression":"func.increase_capsule(2,1)",
-		"name":"pink capsule"
+	{
+		"id": 5.0,
+		"weight": 0.5,
+		"expression": "func.increase_capsule(2,1)",
+		"name": "pink capsule"
 	},
-		{
-		"id":6,
-		"weight":0,
-		"expression":"func.increase_capsule(3,1)",
-		"name":"gold capsule"
+	{
+		"id": 6.0,
+		"weight": 0.0,
+		"expression": "func.increase_capsule(3,1)",
+		"name": "gold capsule"
 	},
-		{
-		"id":7,
-		"weight":3,
-		"expression":"amount *(3+func.get_fruits_bonus_mult())",
-		"name":"lemon"
+	{
+		"id": 7.0,
+		"weight": 3.0,
+		"expression": "amount *(3+func.get_fruits_bonus_mult())",
+		"name": "lemon"
 	},
-		{
-		"id":8,
-		"weight":0,
-		"expression":"0",
-		"name":"cherry"
+	{
+		"id": 8.0,
+		"weight": 0.0,
+		"expression": "0",
+		"name": "cherry"
 	},
-		{
-		"id":9,
-		"weight":0,
-		"expression":"0",
-		"name":"melon"
+	{
+		"id": 9.0,
+		"weight": 0.0,
+		"expression": "0",
+		"name": "melon"
 	},
-		{
-		"id":10,
-		"weight":0,
-		"expression":"0",
-		"name":"grape"
+	{
+		"id": 10.0,
+		"weight": 0.0,
+		"expression": "0",
+		"name": "grape"
 	},
-		{
-		"id":11,
-		"weight":0,
-		"expression":"0",
-		"name":"clover"
+	{
+		"id": 11.0,
+		"weight": 0.0,
+		"expression": "0",
+		"name": "clover"
 	},
-		{
-		"id":12,
-		"weight":0,
-		"expression":"0",
-		"name":"horseshoe"
+	{
+		"id": 12.0,
+		"weight": 0.0,
+		"expression": "0",
+		"name": "horseshoe"
 	},
-		{
-		"id":13,
-		"weight":0.001,
-		"expression":"10000000000000000000000000",
-		"name":"seven"
-	},
+	{
+		"id": 13.0,
+		"weight": 0.001,
+		"expression": "10000000000000000000000000",
+		"name": "seven"
+	}
 ]
