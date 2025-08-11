@@ -1,6 +1,6 @@
 extends Node
 
-var gachas_list : Array[Prize] = []
+var item_list : Array[Item] = []
 
 var gachas : Array[Gacha] = []
 
@@ -32,7 +32,7 @@ func _ready() -> void:
 				if !item.has("expression") : push_error("item without expression : ", item); continue
 				var new_item : Item = Item.new(item["id"], item["name"], item["description"], item["texture"], item["expression"])
 				new_gacha.items.append(new_item)
-				gachas_list.append(new_item)
+				item_list.append(new_item)
 				
 
 			for waifu in gacha["waifus"]:
@@ -44,6 +44,12 @@ func _ready() -> void:
 				new_gacha.waifus.append(new_waifu)
 				
 			gachas.append(new_gacha)
+
+func get_item_by_id(id : int)->Item:
+	for item in item_list:
+		if item.id == id:
+			return item
+	return null
 
 class Gacha:
 	var exp_prize : int = 10000

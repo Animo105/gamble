@@ -6,11 +6,26 @@ extends Control
 @onready var gacha_prize: GachaPrize = $"Gacha Prize"
 @onready var exp_prize: Control = $"Exp Prize"
 
+@onready var collection_panel: Panel = $"collection panel"
+@onready var prize_container: GridContainer = $"collection panel/ScrollContainer/GridContainer"
+
+const GACHA_PRIZE = preload("res://Gacha Machine/gacha_prize.tscn")
 
 func _ready() -> void:
 	update_buttons()
+	collection_panel.visible = false
 	exp_prize.visible = false
 	gacha_prize.visible = false
+
+func _update_collection():
+	# empty container
+	for child in prize_container.get_children():
+		child.queue_free()
+	# refil container
+	for key in Global.items_won.keys():
+		var prize_showcase_instance : GachaPrize = GACHA_PRIZE.instantiate()
+		prize_container.add_child(prize_showcase_instance)
+		prize_showcase_instance.update(GachasData.get_item_by_id(key))
 
 func update_buttons():
 	# blue capsule text
@@ -69,6 +84,7 @@ func _on_yellow_capsules_pressed() -> void:
 	roll(2)
 
 func roll(idx : int):
+	collection_panel.visible = false
 	var prize : GachasData.Prize = GachasData.gachas[idx].roll()
 	if prize == null:
 		gacha_prize.visible = false
@@ -79,3 +95,12 @@ func roll(idx : int):
 		exp_prize.visible = false
 		gacha_prize.visible = true
 		gacha_prize.update(prize)
+
+func _on_collection_pressed() -> void:
+	if collection_panel.visible:
+		collection_panel.visible = false
+	else:
+		exp_prize.visible = false
+		gacha_prize.visible = false
+		collection_panel.visible = true
+		_update_collection()
