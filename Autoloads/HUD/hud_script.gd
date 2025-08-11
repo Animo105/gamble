@@ -5,8 +5,6 @@ extends CanvasLayer
 @onready var upgrades: Button = $HBoxContainer/upgrades
 
 @onready var pause_layer: CanvasLayer = $"pause layer"
-@onready var resume: Button = $"pause layer/CenterContainer/VBoxContainer/resume"
-@onready var save___quit: Button = $"pause layer/CenterContainer/VBoxContainer/save & quit"
 
 const SLOT_MACHINE_SCENE = preload("res://Slot machine/slot_machine.tscn")
 const UPGRADE_SHOP_SCENE = preload("res://Shop/upgrade_shop.tscn")
