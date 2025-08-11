@@ -44,7 +44,7 @@ func load_data():
 			if save_dic.has("capsules"):
 				if save_dic["capsules"] is Dictionary:
 					for key in save_dic["capsules"]:
-						Global.capsules[key] = int(save_dic["capsules"][key])
+						Global.capsules[int(key)] = int(save_dic["capsules"][key])
 
 func reset_data():
 	if DirAccess.remove_absolute(SAVE_PATH) == OK:

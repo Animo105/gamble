@@ -50,5 +50,5 @@ text = "Yellow Rolls"
 icon = ExtResource("5_1i34p")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/blue capsules" to="." method="_on_blue_capsules_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/pink capsules" to="." method="_on_green_capsules_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/pink capsules" to="." method="_on_pink_capsules_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/yellow capsules" to="." method="_on_yellow_capsules_pressed"]
