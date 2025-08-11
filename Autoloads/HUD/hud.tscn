@@ -133,6 +133,20 @@ offset_bottom = 23.0
 theme_override_font_sizes/font_size = 5
 text = "Performance"
 
+[node name="exp" type="Panel" parent="."]
+offset_left = 275.0
+offset_top = 20.0
+offset_right = 315.0
+offset_bottom = 38.0
+
+[node name="Label" type="Label" parent="exp"]
+layout_mode = 0
+offset_left = 14.0
+offset_right = 54.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_jis8a")
+text = "0"
+
 [connection signal="pressed" from="HBoxContainer/slot machine" to="." method="_on_slot_machine_pressed"]
 [connection signal="pressed" from="HBoxContainer/gacha machine" to="." method="_on_gacha_machine_pressed"]
 [connection signal="pressed" from="HBoxContainer/upgrades" to="." method="_on_upgrades_pressed"]

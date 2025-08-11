@@ -23,6 +23,7 @@ func _ready() -> void:
 		weights.append(SlotsData.slots[possibility].weight)
 
 func _on_lever_button_pressed() -> void:
+	print("exp: ",Global.experience)
 	# check si tu peux pull le lever, animation + take money
 	if Global.money >= Global.bet_ammount:
 		var gambling = $gambling
@@ -31,7 +32,6 @@ func _on_lever_button_pressed() -> void:
 		lever_button.disabled = true
 		var bet = Global.bet_ammount
 		Global.money += -Global.bet_ammount
-	
 		# pull le levier
 		Hud.disable_button(true)
 		var random = RandomNumberGenerator.new()
@@ -53,6 +53,8 @@ func _on_lever_button_pressed() -> void:
 			Global.money += reward
 			var winSound = $winSound
 			winSound.play()
+		else:
+			Global.experience += 10
 		lever_sprite.play("lever_up")
 		lever_button.disabled = false
 		for slot in slots:
@@ -61,7 +63,6 @@ func _on_lever_button_pressed() -> void:
 		# pu d'argent a gamble, la game est perdu?
 		if Global.money == 0:
 			pass
-
 
 func _on_bet_text_focus_exited() -> void:
 	var number = int(bet_text.text)
@@ -73,7 +74,6 @@ func _on_bet_text_focus_exited() -> void:
 func _on_bet_text_focus_entered() -> void:
 	if Global.is_bet_allowed:
 		bet_text.text = str(Global.bet_ammount)
-
 
 func _on_bet_text_text_submitted(_new_text: String) -> void:
 	bet_text.release_focus()

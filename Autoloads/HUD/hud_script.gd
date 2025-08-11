@@ -25,10 +25,15 @@ func _ready() -> void:
 	buttons.append(gacha_machine)
 	buttons.append(upgrades)
 	Global._money_update.connect(_money_update)
+	Global.experience_update.connect(_experience_update)
 	_money_update()
+	_experience_update()
 
 func _money_update():
 	$money/Label.text = "%d$" % Global.money
+
+func _experience_update():
+	$exp/Label.text = str(Global.level)
 
 
 func _on_slot_machine_pressed() -> void:

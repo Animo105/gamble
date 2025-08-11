@@ -40,6 +40,7 @@ class Slot:
 				push_error("Execution failed in slot ", id, " : ", ex.get_error_text())
 				return 0
 			else:
+				Global.experience += exp_gain
 				return result
 		else:
 			push_error("Error in slot ", id, " : ", ex.get_error_text())
