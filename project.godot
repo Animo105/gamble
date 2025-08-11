@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*res://Autoloads/global.gd"
 SlotsData="*res://Autoloads/slots_data.gd"
 UpgradesData="*res://Autoloads/upgrades_data.gd"
+ExpressionFunction="*res://Autoloads/expression_function.gd"
 SaveManager="*res://Autoloads/save_manager.gd"
 Hud="*res://Autoloads/HUD/hud.tscn"
 

@@ -5,17 +5,28 @@ var upgrade_id : int = 0
 var upgrade_cost : int = 0
 
 func _ready() -> void:
-	$cost.text = "%d$" % upgrade_cost
-	$"upgrade name".text = UpgradesData.upgrades[upgrade_id].nom
 	$"upgrade desc".text = UpgradesData.upgrades[upgrade_id].description
-	pass
+	update()
+
+func update():
+	if UpgradesData.upgrades[upgrade_id].max_upgrade > 1:
+		if Global.upgrades_bought.has(upgrade_id):
+			# si a buy toute les upgrades, enleve le boutton
+			if Global.upgrades_bought[upgrade_id] >= UpgradesData.upgrades[upgrade_id].max_upgrade:
+				queue_free()
+				return
+			$"upgrade name".text = "%s %d" % [UpgradesData.upgrades[upgrade_id].nom, (Global.upgrades_bought[upgrade_id]+1)]
+		else:
+			$"upgrade name".text = "%s %d" % [UpgradesData.upgrades[upgrade_id].nom, 1]
+	else:
+		$"upgrade name".text = UpgradesData.upgrades[upgrade_id].nom
+	
+	# update le cost
+	upgrade_cost = UpgradesData.upgrades[upgrade_id].cost
+	$cost.text = "%d$" % upgrade_cost
 
 func _on_button_pressed() -> void:
-	if Global.money < upgrade_cost:
-		return
-	
-	Global.money -= upgrade_cost
-	Global.upgrades_bought.append(upgrade_id)
-	UpgradesData.upgrades_to_buy.erase(UpgradesData.upgrades[upgrade_id])
-	UpgradesData.upgrades[upgrade_id].apply.call()
-	queue_free()
+	if Global.money >= upgrade_cost:
+		Global.money-= upgrade_cost
+		UpgradesData.upgrades[upgrade_id].apply()
+		update()

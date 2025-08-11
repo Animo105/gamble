@@ -6,10 +6,8 @@ var money : int = 500:
 	set(value):
 		money = value
 		_money_update.emit()
+var upgrades_bought : Dictionary[int, int] = {}
 
-var bet_ammount : int = 10
-
-var upgrades_bought : Array[int] = []
 
 # Gacha machine global
 var base_capsule_price: int = 1000
@@ -19,10 +17,9 @@ var capsules : Dictionary[String, int] = {
 	"yellow":0
 }
 
-
 # Slot machine global
 var slot_possibility : Array[int] = [1, 2 ,3 ,6 ,7]
 var luck_probability : float = 2
 var slot_wait_time : float = 1.25
-var slot_cost : int = 100
+var bet_ammount : int = 10
 var is_bet_allowed : bool = false

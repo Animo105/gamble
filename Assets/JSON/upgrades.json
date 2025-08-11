@@ -1,0 +1,14 @@
+[
+	{
+		"id":0,
+		"name":"Coin UP!",
+		"description":"Possibility of rolling coins goes up.",
+		"cost":100,
+		"max_upgrade": 3,
+		"expression":"func.increase_coin_value(100)"
+	},
+	{
+		"id":1,
+		"name":"Patate"
+	}
+]

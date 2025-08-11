@@ -35,7 +35,6 @@ func _on_lever_button_pressed() -> void:
 		var modified_weigts : PackedFloat32Array = weights.duplicate()
 		modified_weigts[wanted_slot] *= Global.luck_probability
 		# roll les slates
-		print(modified_weigts)
 		slots[0].selected = Global.slot_possibility[wanted_slot]
 		for i in range(1, 3):
 			await get_tree().create_timer(Global.slot_wait_time).timeout
