@@ -6,7 +6,7 @@
 		"cost": 100.0,
 		"max_upgrade": 3.0,
 		"price_mult": 2.0,
-		"expression": "func.increase_coin_value(100)"
+		"expression": "func.increase_weight_for_slot(1, 0.5)+func.increase_weight_for_slot(2, 0.5)+func.increase_weight_for_slot(3,0.5)"
 	},
 	{
 		"id": 1.0,
@@ -22,15 +22,17 @@
 		"name": "Going All In!",
 		"description": "Allow to bet larger sums of money.\n(why would i want do that?...)",
 		"cost": 500.0,
+		"unlock_level":5,
 		"expression": "func.allow_bet(true)"
 	},
 	{
 		"id": 3.0,
 		"name": "99% of gamblers quit...",
 		"description": "Boost chances of winning.",
-		"cost": 500.0,
-		"max_upgrade": 4.0,
-		"price_mult": 2.0,
+		"cost": 100.0,
+		"max_upgrade": 3.0,
+		"price_mult": 3.0,
+		"unlock_level":2,
 		"expression": "func.increase_luck(0.5)"
 	},
 	{
@@ -40,6 +42,26 @@
 		"cost": 500.0,
 		"max_upgrade": 2.0,
 		"price_mult": 2.0,
+		"unlock_level":5,
 		"expression": "func.increase_slot_speed(0.25)"
+	},
+	{
+		"id": 5.0,
+		"name": "Monetary Deflation",
+		"description": "Value of coins goes up.",
+		"cost": 200.0,
+		"max_upgrade": 3.0,
+		"price_mult": 2.0,
+		"expression": "func.increase_coin_value(100)"
+	},
+	{
+		"id": 6.0,
+		"name": "Roulette Expertise",
+		"description": "Increase chance of winning.",
+		"cost": 1000.0,
+		"max_upgrade": 3.0,
+		"price_mult": 2.0,
+		"unlock_level":10,
+		"expression": "func.increase_coin_value(100)"
 	}
 ]

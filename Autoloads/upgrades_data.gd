@@ -26,10 +26,9 @@ func _ready() -> void:
 			if !upgrade.has("cost") : push_error("Upgrade without cost : ", upgrade); continue
 			if !upgrade.has("expression") : push_error("Upgrade without expression : ", upgrade); continue
 			var new_upgrade : Upgrade = Upgrade.new(upgrade["id"], upgrade["name"], upgrade["description"], upgrade["cost"], upgrade["expression"])
-			if upgrade.has("max_upgrade"):
-				new_upgrade.max_upgrade = upgrade["max_upgrade"]
-			if upgrade.has("price_mult"):
-				new_upgrade.price_multiplayer = upgrade["price_mult"]
+			if upgrade.has("max_upgrade"): new_upgrade.max_upgrade = upgrade["max_upgrade"]
+			if upgrade.has("price_mult"): new_upgrade.price_multiplayer = upgrade["price_mult"]
+			if upgrade.has("unlock_level"): new_upgrade.unlock_level = upgrade["unlock_level"]
 			upgrades.append(new_upgrade)
 			upgrades_to_buy.append(new_upgrade)
 			
@@ -49,6 +48,7 @@ class Upgrade:
 	var max_upgrade : int = 1
 	var level : int = 0
 	var price_multiplayer : float = 1.5
+	var unlock_level : int = 0
 	var cost : int
 	var expression : String
 	

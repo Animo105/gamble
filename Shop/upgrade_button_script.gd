@@ -5,7 +5,13 @@ var upgrade_id : int = 0
 var upgrade_cost : int = 0
 
 func _ready() -> void:
-	$"upgrade desc".text = UpgradesData.upgrades[upgrade_id].description
+	if Global.level < UpgradesData.upgrades[upgrade_id].unlock_level:
+		$"upgrade desc".text = "Unlock at level %d" % UpgradesData.upgrades[upgrade_id].unlock_level
+		$Button.disabled = true
+		modulate = Color(0.5, 0.5, 0.5, 1)
+		$Button.set("mouse_default_cursor_shape", Input.CURSOR_ARROW)
+	else:
+		$"upgrade desc".text = UpgradesData.upgrades[upgrade_id].description
 	update()
 
 func update():
@@ -29,3 +35,11 @@ func _on_button_pressed() -> void:
 			Global.upgrades_bought[upgrade_id] = 1
 		UpgradesData.upgrades[upgrade_id].apply()
 		update()
+
+
+func _on_button_mouse_entered() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+
+func _on_button_mouse_exited() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)

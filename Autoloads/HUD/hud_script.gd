@@ -82,6 +82,7 @@ func _on_save_pressed() -> void:
 
 func _on_clear_data_pressed() -> void:
 	SaveManager.reset_data()
+	get_tree().quit()
 
 
 func _on_cheat_pressed():
