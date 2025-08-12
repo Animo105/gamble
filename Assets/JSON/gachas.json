@@ -10,19 +10,19 @@
 				"expression":"func.increase_luck(0.1)",
 			},
 			{
-				"id":1,
-				"name":"Golden Horseshoe",
-				"description":"Slightly increase luck.",
-				"texture":"horseshoe.png",
-				"expression":"func.increase_luck(0.1)",
-			},
-			{
 				"id":2,
 				"name":"Unused Gear",
 				"description":"Increase slot speed.",
 				"texture":"gear.png",
-				"expression":"0",
+				"expression":"func.increase_slot_speed(0.05)",
 			},
+			{
+				"id":5,
+				"name":"Foreign Currency (Bronze)",
+				"description":"Slightly increase coin value.",
+				"texture":"bronze_currency.png",
+				"expression":"func.increase_coin_value(50))",
+			}
 		],
 		"waifus":[
 			{
@@ -39,10 +39,31 @@
 			{
 				"id":3,
 				"name":"VIP tag",
-				"description":"Increase exp gain.",
+				"description":"Increase exp gain. (peut etre pas en fait c'est peux etre compliquer a gérer)",
 				"texture":"vip_tag.png",
 				"expression":"0",
 			},
+			{
+				"id":1,
+				"name":"Golden Horseshoe",
+				"description":"Slightly increase luck.",
+				"texture":"horseshoe.png",
+				"expression":"func.increase_luck(0.1)",
+			},
+			{
+				"id":6,
+				"name":"Foreign Currency (Silver)",
+				"description":"Increase coin value.",
+				"texture":"silver_currency.png",
+				"expression":"func.increase_coin_value(100))",
+			},
+			{
+				"id":8,
+				"name":"Screwdriver",
+				"description":"Come on they won't notice a few missing coins.",
+				"texture":"screwdriver.png",
+				"expression":"func.increase_flat_win_bonus(50))",
+			}
 		],
 		"waifus":[
 			
@@ -51,7 +72,13 @@
 	{
 		"exp":10000,
 		"items":[
-			
+			{
+				"id":7,
+				"name":"Foreign Currency (Gold)",
+				"description":"Greatly increase coin value.",
+				"texture":"gold_currency.png",
+				"expression":"func.increase_coin_value(250))",
+			}
 		],
 		"waifus":[
 			

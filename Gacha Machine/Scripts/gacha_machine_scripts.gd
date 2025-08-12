@@ -1,8 +1,9 @@
 extends Control
 
-@onready var blue_capsules: Button = $"CenterContainer/VBoxContainer/blue capsules"
-@onready var pink_capsules: Button = $"CenterContainer/VBoxContainer/pink capsules"
-@onready var yellow_capsules: Button = $"CenterContainer/VBoxContainer/yellow capsules"
+@onready var blue_capsules: Button = $"VBoxContainer/blue capsules"
+@onready var pink_capsules: Button = $"VBoxContainer/pink capsules"
+@onready var yellow_capsules: Button = $"VBoxContainer/yellow capsules"
+
 @onready var gacha_prize: GachaPrize = $"Gacha Prize"
 @onready var exp_prize: Control = $"Exp Prize"
 

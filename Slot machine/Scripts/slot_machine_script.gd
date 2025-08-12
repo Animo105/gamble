@@ -45,6 +45,7 @@ func _on_lever_button_pressed() -> void:
 		await get_tree().create_timer(1).timeout
 		if slots[0].selected == slots[1].selected && slots[1].selected == slots[2].selected:
 			var reward :int= SlotsData.slots[slots[0].selected].get_reward(bet)
+			reward += Global.flat_win_bonus
 			print(reward,"$")
 			Global.money += reward
 			var winSound = $winSound

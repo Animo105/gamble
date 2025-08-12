@@ -3,7 +3,7 @@ class_name GachaPrize
 
 const TEXTURE_DIR : String = "res://Assets/Gacha/Items/"
 @onready var texture_rect: TextureRect = $Panel/TextureRect
-@onready var label_name: Label = $"Panel/TextureRect/Label name"
+@onready var label_name: Label = $"Panel/Label name"
 @onready var label_description: Label = $"Panel/Label description"
 @onready var stars: Sprite2D = $stars
 

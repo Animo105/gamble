@@ -4,6 +4,9 @@ extends Node
 func increase_money(amount : int):
 	Global.money += amount
 
+func increase_flat_win_bonus(amount : int):
+	Global.flat_win_bonus += amount
+
 func increase_coin_value(amount : int):
 	SlotsData.coins_bonus_value += amount
 

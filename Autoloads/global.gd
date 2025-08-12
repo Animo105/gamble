@@ -27,7 +27,7 @@ var items_won : Dictionary[int, int] = {}
 var waifus_won : Dictionary[int, int] = {}
 
 # Gacha machine global
-var base_capsule_price: int = 1000
+var base_capsule_price: int = 2500
 var capsules : Dictionary[int, int] = {
 	1:0,
 	2:0,
@@ -40,3 +40,4 @@ var is_bet_allowed : bool = false
 var slot_possibility : Array[int] = [1, 2 ,3 ,4, 7 ,13]
 var slot_wait_time : float = 1.25
 var luck_probability : float = 2
+var flat_win_bonus : int = 0
