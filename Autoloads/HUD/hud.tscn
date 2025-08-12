@@ -108,18 +108,21 @@ grow_vertical = 0
 
 [node name="slot machine" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("1_jis8a")
 theme_override_font_sizes/font_size = 8
 text = "Slot Machine"
 
 [node name="gacha machine" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("1_jis8a")
 theme_override_font_sizes/font_size = 8
 text = "Gacha Machine"
 
 [node name="upgrades" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("1_jis8a")
 theme_override_font_sizes/font_size = 8
 text = "Upgrades"
@@ -155,24 +158,28 @@ grow_vertical = 2
 
 [node name="resume" type="Button" parent="pause layer/CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("1_jis8a")
 theme_override_font_sizes/font_size = 10
 text = "Resume"
 
 [node name="clear data" type="Button" parent="pause layer/CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("1_jis8a")
 theme_override_font_sizes/font_size = 8
 text = "Clear data"
 
 [node name="save" type="Button" parent="pause layer/CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("1_jis8a")
 theme_override_font_sizes/font_size = 8
 text = "Save"
 
 [node name="save & quit" type="Button" parent="pause layer/CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("1_jis8a")
 theme_override_font_sizes/font_size = 8
 text = "Save & Quit"
