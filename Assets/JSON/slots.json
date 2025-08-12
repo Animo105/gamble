@@ -10,78 +10,91 @@
 		"id": 1.0,
 		"weight": 3.0,
 		"expression": "100+func.get_coins_bonus_value()",
-		"name": "coin"
+		"name": "coin",
+		"exp":50
 	},
 	{
 		"id": 2.0,
 		"weight": 1.5,
 		"expression": "500+func.get_coins_bonus_value()",
-		"name": "coin pile"
+		"name": "coin pile",
+		"exp":100
 	},
 	{
 		"id": 3.0,
 		"weight": 1.0,
 		"expression": "2000+func.get_coins_bonus_value()",
-		"name": "diamond"
+		"name": "diamond",
+		"exp":300
 	},
 	{
 		"id": 4.0,
 		"weight": 0.5,
 		"expression": "func.increase_capsule(1,1)",
-		"name": "blue capsule"
+		"name": "blue capsule",
+		"exp":200
 	},
 	{
 		"id": 5.0,
 		"weight": 0.5,
 		"expression": "func.increase_capsule(2,1)",
-		"name": "pink capsule"
+		"name": "pink capsule",
+		"exp":400
 	},
 	{
 		"id": 6.0,
 		"weight": 0.0,
 		"expression": "func.increase_capsule(3,1)",
-		"name": "gold capsule"
+		"name": "gold capsule",
+		"exp":600
 	},
 	{
 		"id": 7.0,
 		"weight": 3.0,
 		"expression": "amount *(3+func.get_fruits_bonus_mult())",
-		"name": "lemon"
+		"name": "lemon",
+		"exp":50
 	},
 	{
 		"id": 8.0,
 		"weight": 0.0,
 		"expression": "0",
-		"name": "cherry"
+		"name": "cherry",
+		"exp":100
 	},
 	{
 		"id": 9.0,
 		"weight": 0.0,
 		"expression": "0",
-		"name": "melon"
+		"name": "melon",
+		"exp":200
 	},
 	{
 		"id": 10.0,
 		"weight": 0.0,
 		"expression": "0",
-		"name": "grape"
+		"name": "grape",
+		"exp":400
 	},
 	{
 		"id": 11.0,
 		"weight": 0.0,
 		"expression": "0",
-		"name": "clover"
+		"name": "clover",
+		"exp":400
 	},
 	{
 		"id": 12.0,
 		"weight": 0.0,
 		"expression": "0",
-		"name": "horseshoe"
+		"name": "horseshoe",
+		"exp":400
 	},
 	{
 		"id": 13.0,
 		"weight": 0.001,
 		"expression": "10000000000000000000000000",
-		"name": "seven"
+		"name": "seven",
+		"exp":10000000000000
 	}
 ]
