@@ -38,12 +38,12 @@ func update_buttons():
 	if Global.capsules[2] > 0:
 		pink_capsules.text = "%d Free Rolls" % Global.capsules[2]
 	else:
-		pink_capsules.text = "%d$ / Rolls" % (Global.base_capsule_price * 5)
+		pink_capsules.text = "%d$ / Rolls" % (Global.base_capsule_price * 2)
 	# yellow capsule text
 	if Global.capsules[3] > 0:
 		yellow_capsules.text = "%d Free Rolls" % Global.capsules[3]
 	else:
-		yellow_capsules.text = "%d$ / Rolls" % (Global.base_capsule_price * 10)
+		yellow_capsules.text = "%d$ / Rolls" % (Global.base_capsule_price * 4)
 
 
 func _on_blue_capsules_pressed() -> void:

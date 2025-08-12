@@ -26,8 +26,9 @@ var upgrades_bought : Dictionary[int, int] = {}
 var items_won : Dictionary[int, int] = {}
 var waifus_won : Dictionary[int, int] = {}
 
+
 # Gacha machine global
-var base_capsule_price: int = 2500
+var base_capsule_price: int = 1000
 var capsules : Dictionary[int, int] = {
 	1:0,
 	2:0,
